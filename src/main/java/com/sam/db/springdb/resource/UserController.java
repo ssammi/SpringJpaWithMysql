@@ -1,4 +1,4 @@
-package com.sam.db.springdb.controller;
+package com.sam.db.springdb.model;
 
 import com.sam.db.springdb.repository.UserRepository;
 import com.sam.db.springdb.user.User;
