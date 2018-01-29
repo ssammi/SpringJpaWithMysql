@@ -1,11 +1,9 @@
 package com.sam.db.springdb.user;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "user", catalog = "Mytest")
 public class User {
 
     @Id
@@ -15,7 +13,7 @@ public class User {
     @Column(name = "name")
     private String name;
     @Column(name = "salary")
-    private int salary;
+    private String salary;
     @Column(name = "dept")
     private String dept;
 
@@ -35,11 +33,11 @@ public class User {
         this.name = name;
     }
 
-    public int getSalary() {
+    public String getSalary() {
         return salary;
     }
 
-    public void setSalary(int salary) {
+    public void setSalary(String salary) {
         this.salary = salary;
     }
 
