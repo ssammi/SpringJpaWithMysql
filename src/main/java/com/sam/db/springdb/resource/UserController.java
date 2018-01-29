@@ -1,4 +1,4 @@
-package com.sam.db.springdb.controller;
+package com.sam.db.springdb.resource;
 
 import com.sam.db.springdb.repository.UserRepository;
 import com.sam.db.springdb.user.User;
@@ -19,9 +19,27 @@ public class UserController {
         return userRepository.findAll();
     }
 
+    @GetMapping(value = "/{name}")
+    public List<User> findUser(@PathVariable("name") final String name){
+        return userRepository.findByName(name);
+    }
+
     @PostMapping(value = "/add")
     public List<User> addUser(@RequestBody final User user){
         userRepository.save(user);
         return userRepository.findAll();
+    }
+
+    @GetMapping(value = "/id/{id}")
+    public User getUserById(@PathVariable("id") final Long id){
+        return userRepository.findOne(id);
+    }
+
+    @GetMapping(value = "update/{id}/{name}")
+    public User updateUserName(@PathVariable("id") final Long id, @PathVariable("name") final String name){
+        User userinfo = getUserById(id);
+        userinfo.setName(name);
+
+        return userRepository.save(userinfo);
     }
 }

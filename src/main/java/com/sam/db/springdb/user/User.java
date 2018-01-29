@@ -1,21 +1,19 @@
 package com.sam.db.springdb.user;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "user", catalog = "Mytest")
 public class User {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
     @Column(name = "name")
     private String name;
     @Column(name = "salary")
-    private int salary;
+    private String salary;
     @Column(name = "dept")
     private String dept;
 
@@ -23,31 +21,35 @@ public class User {
         return id;
     }
 
-    public void setId(Long id) {
+    public User setId(Long id) {
         this.id = id;
+        return this;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public User setName(String name) {
         this.name = name;
+        return this;
     }
 
-    public int getSalary() {
+    public String getSalary() {
         return salary;
     }
 
-    public void setSalary(int salary) {
+    public User setSalary(String salary) {
         this.salary = salary;
+        return this;
     }
 
     public String getDept() {
         return dept;
     }
 
-    public void setDept(String dept) {
+    public User setDept(String dept) {
         this.dept = dept;
+        return this;
     }
 }
